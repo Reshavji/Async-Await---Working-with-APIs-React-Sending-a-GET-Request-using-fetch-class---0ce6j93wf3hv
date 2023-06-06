@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import '../styles/App.css';
 
 
-const getData =  () =>{
-  const rawData =  fetch('https://jsonplaceholder.typicode.com/todos')
-  const data =  rawData.json()
-  return data
-}
+const getData = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await response.json();
+  return data;
+};
+
 const App = () => {
   const [todos,setTodos] = useState([])
   useEffect(()=>{
